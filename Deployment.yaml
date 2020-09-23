@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: Mynamespace
+  spec:
+    selector:
+      name: ngnix
+    matchLabels:
+      app: ngnix
+      
+     template:  
+      metadata:
+        name: ngnix
+        labels:
+        app: ngnix
+
+spec:
+  container:
+  -name: ngnix:
+  image: ngnix:latest
+   port:
+   - containerport: 80
